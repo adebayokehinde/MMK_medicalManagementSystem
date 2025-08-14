@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest  # ✅ Use Linux runner
 
     services:
       mysql:
@@ -30,7 +30,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Add your build or test steps here
-      # Example:
       - name: Print working directory
         run: pwd
