@@ -1,20 +1,36 @@
-name: medicalrecordsystem
+name: medicalManagementSystem
 
 on:
   push:
     branches:
       - master
-    pull_request:
-      branches:
-        - master
+  pull_request:
+    branches:
+      - master
+
 jobs:
-  builds:
-    runs-on: windows
+  build:
+    runs-on: windows-latest
 
     services:
       mysql:
         image: mysql:latest
         env:
-          MySQL_ROOT_PASSWORD: root
+          MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: userRegister
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
 
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Add your build or test steps here
+      # Example:
+      - name: Print working directory
+        run: pwd
