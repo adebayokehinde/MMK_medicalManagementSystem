@@ -6,10 +6,11 @@
 .navBar{
     display: flex;
     justify-content: space-between;
-    padding: 0 50px;
+    padding: 50px;
 }
 .body{
     background-color: white;
+    margin: auto;
 
 }
 
@@ -33,7 +34,7 @@
     cursor: pointer;
     width: 100px;
     padding-left: 10px;
-li
+
 }
 .imageonediv{
     display: inline-block;
